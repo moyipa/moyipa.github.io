@@ -53,13 +53,13 @@ li a:hover {
 .header{
 	color:black;
 	text-align: center;
-	text-size:100px;
+	font-size:4em;
 }
 
 
 .text-box{
 	text-align:center;
-	text-size:20px;
+	font-size:2em;
 	color:black;
 	max-width: 55%
 }
