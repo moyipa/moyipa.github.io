@@ -1,3 +1,5 @@
+
+
 #logo {
 	width: 20%;
 	max-width:40%;
@@ -35,7 +37,9 @@ li a:hover {
 	border:5px solid black;
 }
 
-
+html{
+	font-family: 'Open Sans', sans-serif;
+}
 #big-con{
 	width: 70%
 }
@@ -46,11 +50,13 @@ li a:hover {
 }
 
 .wide{
+	font-family: 'Open Sans', sans-serif;
 	min-width=100%
 }
 
 
 .header{
+	font-family: 'Open Sans', sans-serif;
 	color:black;
 	text-align: center;
 	font-size:3.5em;
@@ -58,6 +64,7 @@ li a:hover {
 
 
 .text-box{
+	font-family: 'Open Sans', sans-serif;
 	text-align:center;
 	font-size:1em;
 	color:black;
