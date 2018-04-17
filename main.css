@@ -28,3 +28,8 @@ li a{
 li a:hover {
 	background-color: #111
 }
+
+.container-prev{
+	padding:5px;
+	border-color:#000
+}
