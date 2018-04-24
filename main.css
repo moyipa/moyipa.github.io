@@ -68,3 +68,14 @@ li a:hover {
 	color:black;
 	max-width: 55%
 }
+
+.chat-box{
+	mix-width: 40%;
+	max-width: 80%;
+	width: 60%;
+	mix-height: 40%;
+	max-height: 80%;
+	height: 60%;
+	border: 3px solid #e2e2e2;
+	border-radius: 10px;
+}
