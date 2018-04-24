@@ -51,7 +51,7 @@
 						background-color: #efefef;
 						float: none;
 						text-align: left;
-						padding-right: 100%;
+						padding-right: 50%;
 						
 					}
 					#username, #text{
@@ -98,7 +98,9 @@
 					    });
 					  clearButton.addEventListener("click", function() {
 						  myFirebase.remove();
-						  location.reload
+						  myFirebase = new Firebase('https://vent-data-base.firebaseio.com');
+						  window.location.reload();
+					  
 					  });
 					var startListening = function() {
 				      myFirebase.on('child_added', function(snapshot) {
