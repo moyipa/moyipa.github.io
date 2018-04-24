@@ -4,6 +4,7 @@
         <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
         <title> Vent </title>
         <link href ="main.css" rel = "stylesheet" type = "text/css" />
+        <script src='https://cdn.firebase.com/js/client/2.4.0/firebase.js'></script>
     </head>
     
     <body>
@@ -27,9 +28,100 @@
             </ul>
         </div>
         
-        <div class="content">
-            
-            
+        <div class="container-prev" width=100% height=100% >
+			<div class="container-prev" id="main-chat" width=100% height=100%>
+				<style>
+					.post{
+						width: 20%;
+						border: 1px solid black;
+						border-radius: 5px;
+					}
+					.chat-box-message{
+						mix-width: 40%;
+						max-width: 80%;
+						width: 60%;
+						
+						border: 1px solid #e2e2e2;
+						border-radius: 5px;
+					}
+					.msg{
+						margin: 10px 0;
+						padding: 10px;
+						width: 40%;
+						background-color: #efefef;
+						
+					}
+					#username, #text{
+						margin: 5px 0px;	
+					}
+					#post, #clear{
+						padding: 0.5em 1em;
+						background-color: #50b1ff;
+						border: none;
+						border-radius: 5px;
+						color: #FFF;
+					}
+				</style>
+				<center>
+					<div class="chat-box" id="results" style="overflow:scroll;">
+					
+
+					</div>
+					
+					 
+					  <input id="text" type="text" placeholder="Message" class="chat-box-message"><br/>
+					  <button id="post" class="post">Post</button>
+					  <br>
+					  <br>
+					  <button id="clear" class="post">Clear Data</button>
+					
+					  <script>
+				   
+					  var myFirebase = new Firebase('https://webchat-67d31.firebaseio.com');
+					  //var usernameInput = document.querySelector('#username');
+					  var textInput = document.querySelector('#text');
+					  var postButton = document.querySelector('#post');
+					  var clearButton = document.querySelector("#clear");
+					  postButton.addEventListener("click", function() {
+					      //var msgUser = usernameInput.value;
+					      var msgUser = "Anonymous";
+					      var msgText = textInput.value;
+					      if(!msgText.equals("")){
+					      // replace myFirebase.set(...); with the next line
+					      myFirebase.push({username:msgUser, text:msgText});
+					      textInput.value = "";
+					      }
+					    });
+					  clearButton.addEventListener("click", function() {
+						  myFirebase.child().remove();
+					  });
+					var startListening = function() {
+				      myFirebase.on('child_added', function(snapshot) {
+					var msg = snapshot.val();
+					var msgUsernameElement = document.createElement("b");
+					msgUsernameElement.textContent = msg.username;
+					var msgTextElement = document.createElement("p");
+					msgTextElement.textContent = msg.text;
+					var msgElement = document.createElement("div");
+					msgElement.appendChild(msgUsernameElement);
+					msgElement.appendChild(msgTextElement);
+					
+					msgElement.className = "msg";
+       					
+					      
+					document.getElementById("results").appendChild(msgElement);
+				      });
+				    }
+				
+				    // Begin listening for data
+				    startListening();
+						  
+				  </script>
+				</center>
+				 
+			</div>
+		
+			
         </div>
   </body>
 </html>
