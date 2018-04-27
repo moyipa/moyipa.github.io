@@ -69,6 +69,13 @@ li a:hover {
 	max-width: 55%
 }
 
+.text-box2{
+	font-family: 'Open Sans', sans-serif;
+	text-align:center;
+	font-size:1em;
+	color:black;
+}
+
 .chat-box{
 	mix-width: 40%;
 	max-width: 80%;
