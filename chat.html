@@ -132,69 +132,8 @@
 		
 			
          </div>
-	    -->
-	    
-	    var myFirebase = new Firebase('https://webchat-67d31.firebaseio.com');
-					  //var usernameInput = document.querySelector('#username');
-					  var textInput = document.querySelector('#text');
-					  var postButton = document.querySelector('#post');
-					  var clearButton = document.querySelector("#clear");
-					  postButton.addEventListener("click", function() {
-					      //var msgUser = usernameInput.value;
-					      var msgUser = "Anonymous";
-					      var msgText = textInput.value.trim();
-					      if(msgText == null || msgText == ""){
-						window.alert("You need to type some text in order to post!");  
-						textInput.value = "";
-					      }else{
-					      // replace myFirebase.set(...); with the next line
-					      myFirebase.push({username:msgUser, text:msgText});
-					      textInput.value = "";
-					      }
-						
-					      
-					    });
-					  clearButton.addEventListener("click", function() {
-						  myFirebase.remove();
-						  myFirebase = new Firebase('https://webchat-67d31.firebaseio.com');
-						  window.location.reload();
-					  });
-					var startListening = function() {
-				      myFirebase.on('child_added', function(snapshot) {
-					var msg = snapshot.val();
-					var msgUsernameElement = document.createElement("b");
-					msgUsernameElement.textContent = msg.username;
-					var msgTextElement = document.createElement("p");
-					msgTextElement.textContent = msg.text;
-					var msgElement = document.createElement("div");
-					msgElement.appendChild(msgUsernameElement);
-					msgElement.appendChild(msgTextElement);
-					//msgElement.child(msgTextElement).className = "msg-text";
-					
-					msgElement.className = "msg";
-       						
-					      
-					document.getElementById("results").appendChild(msgElement);
-					      
-					var objDiv = document.getElementById("results");
-					objDiv.scrollTop = objDiv.scrollHeight;
-				      });
-				    }
-				
-				    // Begin listening for data
-				    startListening();
-						  
-				  </script>
-				</center>
-				 
-			</div>
-		
-			
-			
-		</div>
-		<br>
-		<br>
-		<br>
+	 
+	   
 </body>
   </body>
 </html>
