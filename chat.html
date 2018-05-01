@@ -100,7 +100,7 @@
 					      }
 						var words = msgText.split(" ");
 						  for (var word in words){
-							  if(word in notAllowed){
+							  if(notAllowed.includes(word)){
 								  canPost = false;
 								  window.alert("Refrain from saying words such as those.");
 								  textInput.value="";
