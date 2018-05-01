@@ -98,14 +98,17 @@
 						textInput.value = "";
 						      canPost=false;
 					      }
-						var words = msgText.split(" ");
-						  for (var word in words){
-							  if(notAllowed.includes(word)){
-								  canPost = false;
-								  window.alert("Refrain from saying words such as those.");
-								  textInput.value="";
-							  }
-						  }
+						 var words = msgText.split(" ");
+					   words.forEach(function(word){
+						notAllowed.forEach(function(badWord) {
+							if(word.includes(badWord)){
+								canPost = false;
+								window.alert("Vulgarities aren't allowed!");  
+						  		textInput.value = "";
+							}
+						});
+						   
+					   });
 						 if (canPost){
 					      // replace myFirebase.set(...); with the next line
 					      myFirebase.push({username:msgUser, text:msgText});
