@@ -84,22 +84,34 @@
 				   
 						var myFirebase = new Firebase('https://vent-data-base.firebaseio.com/');
 					  //var usernameInput = document.querySelector('#username');
+					var notAllowed= ["kill yourself", "kill","your", "self"];
 					  var textInput = document.querySelector('#text');
 					  var postButton = document.querySelector('#post');
 					  var clearButton = document.querySelector("#clear");
 					  postButton.addEventListener("click", function() {
 					      //var msgUser = usernameInput.value;
+						  var canPost = True;
 					      var msgUser = "Anonymous";
 					      var msgText = textInput.value.trim();
 					      if(msgText == null || msgText == ""){
 						window.alert("You need to type some text in order to post!");  
 						textInput.value = "";
-					      }else{
+						      canPost=False;
+					      }
+						var words = msgText.split(" ");
+						  for (var word in words){
+							  if(word in notAllowed){
+								  canPost = False;
+								  window.alert("Refrain from saying words such as those.");
+								  textInput.value="";
+							  }
+						  }
+						 if (canPost){
 					      // replace myFirebase.set(...); with the next line
 					      myFirebase.push({username:msgUser, text:msgText});
 					      textInput.value = "";
-					      }
-						
+					      
+						 }
 					      
 					    });
 					  clearButton.addEventListener("click", function() {
