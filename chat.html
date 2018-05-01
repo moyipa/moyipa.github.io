@@ -90,18 +90,18 @@
 					  var clearButton = document.querySelector("#clear");
 					  postButton.addEventListener("click", function() {
 					      //var msgUser = usernameInput.value;
-						  var canPost = True;
+						  var canPost = true;
 					      var msgUser = "Anonymous";
 					      var msgText = textInput.value.trim();
 					      if(msgText == null || msgText == ""){
 						window.alert("You need to type some text in order to post!");  
 						textInput.value = "";
-						      canPost=False;
+						      canPost=false;
 					      }
 						var words = msgText.split(" ");
 						  for (var word in words){
 							  if(word in notAllowed){
-								  canPost = False;
+								  canPost = false;
 								  window.alert("Refrain from saying words such as those.");
 								  textInput.value="";
 							  }
